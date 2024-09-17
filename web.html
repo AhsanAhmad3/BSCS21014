@@ -4,39 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Professional Profile showcasing skills, projects, certifications, degrees, and hackathon experience.">
-    <meta name="keywords" content="Professional, Portfolio, Certifications, Projects, Degrees, Hackathons, Skills">
+    <meta name="description" content="Professional Profile showcasing skills, projects, certifications, degrees.">
+    <meta name="keywords" content="Professional, Portfolio, Certifications, Projects, Degrees, Skills">
     <meta name="author" content="Your Name">
-    <title>Professional Profile - Your Name</title>
+    <title>Professional Profile - Ahsan Ahmad</title>
+
+    <!-- Font and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5; /* Light grey background for the page */
         }
 
-        /* Mobile-first responsive navigation */
+        /* Navigation Bar */
         .navbar {
-            background-color: #333;
+            background-color: #0056b3; /* Deep blue background */
             overflow: hidden;
         }
 
         .navbar a {
             float: left;
             display: block;
-            color: #f2f2f2;
+            color: #ffffff; /* White text */
             text-align: center;
-            padding: 14px 20px;
+            padding: 16px 20px;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #003d79; /* Darker blue on hover */
         }
 
         .navbar a.active {
-            background-color: #4CAF50;
+            background-color: #004085; /* Even darker blue for active */
             color: white;
         }
 
@@ -48,10 +53,12 @@
             }
         }
 
+        /* Profile Header */
         .profile-header {
             text-align: center;
             padding: 50px;
-            background-color: #f4f4f4;
+            background-color: #004085; /* Dark blue background */
+            color: #ffffff; /* White text */
         }
 
         .profile-header h1 {
@@ -61,12 +68,16 @@
 
         .profile-header p {
             font-size: 1.2em;
-            color: #666;
+            color: #d0d0d0; /* Light grey text */
         }
 
+        /* Content Section */
         .content {
             padding: 20px;
             margin: 20px;
+            background-color: #ffffff; /* White background for content sections */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
         }
 
         /* Skills Section */
@@ -87,30 +98,90 @@
             object-fit: cover;
             margin-bottom: 20px; 
         }
+
+        /* Projects, Awards, Certifications Section */
+        .list-section {
+            margin-bottom: 20px;
+        }
+
+        .list-section h3 {
+            margin-top: 0;
+            color: #0056b3; /* Blue for headings */
+        }
+
+        .list-item {
+            margin-bottom: 15px;
+        }
+
+        .list-item span {
+            font-weight: bold;
+            display: block;
+            color: #333333; /* Dark grey text for labels */
+        }
+
+        .list-item p {
+            margin: 0;
+            color: #555555; /* Medium grey text for descriptions */
+        }
+
+        /* Embedded Video Section */
+        .video-content {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff; /* White background for video section */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        .video-content iframe {
+            border-radius: 8px; /* Rounded corners for video */
+        }
+
+
+        /* Social Media Section */
+        .social-media {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff; /* White background for social media section */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px; /* Space between icons */
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 3em;
+            color: #0056b3; /* Blue color for the icons */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #003d79; /* Darker blue on hover */
+        }
+
         
     </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <div class="navbar" style="width: ;">
+    <div class="navbar">
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <!-- ///<a href="#experience">Experience</a>/// -->
         <a href="#awards">Certifications & Awards</a>
         <a href="#education">Education</a>
         <a href="#video">Video</a>
         <a href="#contact">Contact</a>
     </div>
-
-    <!-- Profile Header
-    <div class="profile-header" id="home">
-        <h1>Ahsan Ahmad</h1>
-        <p>Data Engineer | Industry</p>
-    </div> -->
-
 
     <!-- Profile Header -->
     <div class="profile-header" id="home">
@@ -120,10 +191,22 @@
     </div>
 
 
+
+        <!-- Social Media Feed -->
+    <div class="content social-media" id="social-media">
+        <h2>Follow Me</h2>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ahsan-ahmad-b13591286/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/AhsanAhmad3" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/ahmad64569" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+
     <!-- Content Section -->
     <div class="content" id="about">
         <h2>About Me</h2>
-        <p>Hello, my name is Ahsan Ahmad.I am Currently a student at ITU in 7th semester.I am currenlty exploring the different branches of Computer Science to select what suits me the most. Data and Software Engineering are the two branches that facinates me the most so ill end up selecting from among the two for myself to pursue as a career in .</p>
+        <p>Hello, my name is Ahsan Ahmad. I am currently a student at ITU in the 7th semester. I am exploring the different branches of Computer Science to select what suits me the most. Data and Software Engineering are the two branches that fascinate me the most, so I'll end up selecting from among the two for myself to pursue as a career.</p>
     </div>
 
     <!-- Skills Section -->
@@ -142,9 +225,9 @@
             <div class="hard-skills">
                 <h3>Hard Skills</h3>
                 <ul>
-                    <li>Programming: Python, C++ </li>
-                    <li>Web Development: HTML, CSS </li>
-                    <li>Data Analysis: Excel, SQL </li>
+                    <li>Programming: Python, C++</li>
+                    <li>Web Development: HTML, CSS</li>
+                    <li>Data Analysis: Excel, SQL</li>
                 </ul>
             </div>
         </div>
@@ -157,17 +240,17 @@
             <div class="list-item">
                 <span>Project Name: Parking Management System</span>
                 <span>Date: January 2022</span>
-                <p>Description: Developed a basic car parking Management system app in flutter that had google maps integrated </p>
+                <p>Description: Developed a basic car parking management system app in Flutter with Google Maps integration.</p>
             </div>
             <div class="list-item">
                 <span>Project Name: Football Data Analytics</span>
                 <span>Date: March 2024</span>
-                <p>Description: Created an end to end Azure data Engineering project that fetches the data form internet about the stadiums and help to filter out those stadiums according to our requirements.</p>
+                <p>Description: Created an end-to-end Azure data engineering project that fetches data from the internet about stadiums and helps filter them according to requirements.</p>
             </div>
         </div>
     </div>
 
-    <!-- Certifications, Awards & Trainings -->
+    <!-- Certifications -->
     <div class="content" id="awards">
         <h2>Certifications & Awards</h2>
         <div class="list-section">
@@ -176,14 +259,33 @@
                 <span>Date: March 2023</span>
                 <p>A comprehensive program that covers data cleaning, analysis, visualization, and more using Google’s tools.</p>
             </div>
-            
         </div>
     </div>
 
+    <!-- Education: Degree Programs -->
+    <div class="content" id="education">
+        <h2>Education</h2>
+        <div class="list-section">
+            <div class="list-item">
+                <span>Degree:</span> <p>Bachelor of Science in Computer Science</p>
+                <span>University:</span> <p>Information Technology University</p>
+                <span>Expected Graduation Date:</span> <p>May 2025</p>
+            </div>
+            <div class="list-item">
+                <span>High School:</span> <p>A Levels</p>
+                <span>School:</span> <p>Beacon House</p>
+                <span>Date Completed:</span> <p>August 2020</p>
+            </div>
+        </div>
+    </div>
 
-    
-
-    
+    <!-- Video Section -->
+    <div class="content video-content" id="video">
+        <h2>Video</h2>
+        <iframe width="560" height="315" src="C:\Users\USER\Downloads\Motion Graphics Background Video Loop Part 2 Single Tree Animation 4K Download Free Footage.mp4" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
 
     <!-- Contact Section -->
     <div class="content" id="contact">
@@ -191,8 +293,6 @@
         <p>Email: ahsanv032@gmail.com</p>
         <p>Phone: 03104273082</p>
     </div>
-
-   
 
 </body>
 </html>
