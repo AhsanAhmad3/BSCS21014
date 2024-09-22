@@ -327,6 +327,100 @@
             video: "C:/Users/USER/Downloads/Motion Graphics Background Video Loop Part 2 Single Tree Animation 4K Download Free Footage.mp4" // Update to a correct URL
         };
 
-     </script>
-// </body>
-// </html>
+        
+        // Populate the profile data into the HTML
+        document.getElementById("name").textContent = profile.name;
+        document.getElementById("profession").textContent = profile.profession;
+        document.getElementById("profile-picture").src = profile.profilePicture;
+        document.getElementById("about-text").textContent = profile.about.en; // Default to English
+
+        // Populate skills
+        const softSkillsList = document.getElementById("soft-skills-list");
+        const hardSkillsList = document.getElementById("hard-skills-list");
+
+        profile.skills.softSkills.forEach(skill => {
+            let listItem = document.createElement("li");
+            listItem.textContent = skill;
+            softSkillsList.appendChild(listItem);
+        });
+
+        profile.skills.hardSkills.forEach(skill => {
+            let listItem = document.createElement("li");
+            listItem.textContent = skill;
+            hardSkillsList.appendChild(listItem);
+        });
+
+        // Populate projects
+        const projectsList = document.getElementById("projects-list");
+        profile.projects.forEach(project => {
+            let projectItem = `
+                <div class="list-item">
+                    <span>Project Name: ${project.name}</span>
+                    <span>Date: ${project.date}</span>
+                    <p>${project.description}</p>
+                </div>
+            `;
+            projectsList.innerHTML += projectItem;
+        });
+
+        // Populate certifications
+        const certificationsList = document.getElementById("certifications-list");
+        profile.certifications.forEach(cert => {
+            let certItem = `
+                <div class="list-item">
+                    <span>Certification: ${cert.name}</span>
+                    <span>Date: ${cert.date}</span>
+                    <p>${cert.description}</p>
+                </div>
+            `;
+            certificationsList.innerHTML += certItem;
+        });
+
+        // Populate education
+        const educationList = document.getElementById("education-list");
+        profile.education.forEach(edu => {
+            let eduItem = `
+                <div class="list-item">
+                    <span>Degree: ${edu.degree}</span>
+                    <span>University: ${edu.university}</span>
+                    <p>Graduation Date: ${edu.graduationDate || edu.dateCompleted}</p>
+                </div>
+            `;
+            educationList.innerHTML += eduItem;
+        });
+
+        // Populate social media
+        const socialIcons = document.getElementById("social-icons");
+        Object.keys(profile.socialMedia).forEach(platform => {
+            let iconClass = {
+                linkedin: "fab fa-linkedin",
+                github: "fab fa-github",
+                twitter: "fab fa-twitter"
+            };
+            let link = profile.socialMedia[platform];
+            let iconItem = `<a href="${link}" target="_blank"><i class="${iconClass[platform]}"></i></a>`;
+            socialIcons.innerHTML += iconItem;
+        });
+
+        // Populate contact info
+        document.getElementById("email").textContent = `Email: ${profile.contact.email}`;
+        document.getElementById("phone").textContent = `Phone: ${profile.contact.phone}`;
+
+        // Populate video
+        const videoContainer = document.getElementById("video-container");
+        videoContainer.innerHTML = `
+            <iframe width="560" height="315" src="file://${profile.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        `;
+
+        // Function to change the language
+        function changeLanguage() {
+            const selectedLanguage = document.getElementById("language-dropdown").value;
+            document.getElementById("about-text").textContent = profile.about[selectedLanguage];
+        }
+
+        // Initial load in English
+        changeLanguage();
+
+         </script>
+    </body>
+    </html>
