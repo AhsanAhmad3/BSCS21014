@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Professional Profile showcasing skills, projects, certifications, degrees.">
     <meta name="keywords" content="Professional, Portfolio, Certifications, Projects, Degrees, Skills">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Ahsan Ahmad">
     <title>Professional Profile - Ahsan Ahmad</title>
 
     <!-- Font and icons -->
@@ -45,11 +45,26 @@
             color: white;
         }
 
+        /* Language Selector in Navbar */
+        .navbar select {
+            float: right;
+            padding: 8px;
+            margin: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ffffff; /* White background */
+            color: #0056b3; /* Text color */
+        }
+
         /* Responsive design for mobile */
         @media (max-width: 768px) {
             .navbar a {
                 padding: 12px 10px;
                 font-size: 14px;
+            }
+
+            .navbar select {
+                margin: 8px 10px;
             }
         }
 
@@ -135,8 +150,9 @@
 
         .video-content iframe {
             border-radius: 8px; /* Rounded corners for video */
+            width: 100%; /* Full width */
+            height: 315px; /* Fixed height */
         }
-
 
         /* Social Media Section */
         .social-media {
@@ -165,8 +181,6 @@
         .social-icons a:hover {
             color: #003d79; /* Darker blue on hover */
         }
-
-        
     </style>
 </head>
 <body>
@@ -181,32 +195,31 @@
         <a href="#education">Education</a>
         <a href="#video">Video</a>
         <a href="#contact">Contact</a>
+        <select id="language-dropdown" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+            <option value="ur">Urdu</option>
+            <option value="fr">French</option>
+        </select>
     </div>
 
     <!-- Profile Header -->
     <div class="profile-header" id="home">
-        <img src="C:\Users\USER\Downloads\454659274_3426649184148602_5962467555163820359_n.jpg" alt="Ahsan Ahmad" class="profile-picture">
-        <h1>Ahsan Ahmad</h1>
-        <p>Data Engineer | Software Engineer</p>
+        <img src="" alt="Profile Picture" class="profile-picture" id="profile-picture">
+        <h1 id="name"></h1>
+        <p id="profession"></p>
     </div>
 
-
-
-        <!-- Social Media Feed -->
+    <!-- Social Media Section -->
     <div class="content social-media" id="social-media">
         <h2>Follow Me</h2>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/ahsan-ahmad-b13591286/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/AhsanAhmad3" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://x.com/ahmad64569" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
+        <div class="social-icons" id="social-icons"></div>
     </div>
-
 
     <!-- Content Section -->
     <div class="content" id="about">
         <h2>About Me</h2>
-        <p>Hello, my name is Ahsan Ahmad. I am currently a student at ITU in the 7th semester. I am exploring the different branches of Computer Science to select what suits me the most. Data and Software Engineering are the two branches that fascinate me the most, so I'll end up selecting from among the two for myself to pursue as a career.</p>
+        <p id="about-text"></p>
     </div>
 
     <!-- Skills Section -->
@@ -215,20 +228,11 @@
         <div class="skills">
             <div class="soft-skills">
                 <h3>Soft Skills</h3>
-                <ul>
-                    <li>Communication</li>
-                    <li>Leadership</li>
-                    <li>Problem Solving</li>
-                    <li>Teamwork</li>
-                </ul>
+                <ul id="soft-skills-list"></ul>
             </div>
             <div class="hard-skills">
                 <h3>Hard Skills</h3>
-                <ul>
-                    <li>Programming: Python, C++</li>
-                    <li>Web Development: HTML, CSS</li>
-                    <li>Data Analysis: Excel, SQL</li>
-                </ul>
+                <ul id="hard-skills-list"></ul>
             </div>
         </div>
     </div>
@@ -236,63 +240,93 @@
     <!-- Projects Section -->
     <div class="content" id="projects">
         <h2>Projects</h2>
-        <div class="list-section">
-            <div class="list-item">
-                <span>Project Name: Parking Management System</span>
-                <span>Date: January 2022</span>
-                <p>Description: Developed a basic car parking management system app in Flutter with Google Maps integration.</p>
-            </div>
-            <div class="list-item">
-                <span>Project Name: Football Data Analytics</span>
-                <span>Date: March 2024</span>
-                <p>Description: Created an end-to-end Azure data engineering project that fetches data from the internet about stadiums and helps filter them according to requirements.</p>
-            </div>
-        </div>
+        <div id="projects-list"></div>
     </div>
 
     <!-- Certifications -->
     <div class="content" id="awards">
         <h2>Certifications & Awards</h2>
-        <div class="list-section">
-            <div class="list-item">
-                <span>Certification: Google Data Analytics Professional Certificate</span>
-                <span>Date: March 2023</span>
-                <p>A comprehensive program that covers data cleaning, analysis, visualization, and more using Google’s tools.</p>
-            </div>
-        </div>
+        <div id="certifications-list"></div>
     </div>
 
-    <!-- Education: Degree Programs -->
+    <!-- Education Section -->
     <div class="content" id="education">
         <h2>Education</h2>
-        <div class="list-section">
-            <div class="list-item">
-                <span>Degree:</span> <p>Bachelor of Science in Computer Science</p>
-                <span>University:</span> <p>Information Technology University</p>
-                <span>Expected Graduation Date:</span> <p>May 2025</p>
-            </div>
-            <div class="list-item">
-                <span>High School:</span> <p>A Levels</p>
-                <span>School:</span> <p>Beacon House</p>
-                <span>Date Completed:</span> <p>August 2020</p>
-            </div>
-        </div>
+        <div id="education-list"></div>
     </div>
 
     <!-- Video Section -->
     <div class="content video-content" id="video">
         <h2>Video</h2>
-        <iframe width="560" height="315" src="C:\Users\USER\Downloads\Motion Graphics Background Video Loop Part 2 Single Tree Animation 4K Download Free Footage.mp4" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen></iframe>
+        <div id="video-container"></div>
     </div>
 
     <!-- Contact Section -->
     <div class="content" id="contact">
         <h2>Contact</h2>
-        <p>Email: ahsanv032@gmail.com</p>
-        <p>Phone: 03104273082</p>
+        <p id="email"></p>
+        <p id="phone"></p>
     </div>
 
-</body>
-</html>
+    <script>
+        // JavaScript Object representing the profile data
+        const profile = {
+            name: "Ahsan Ahmad",
+            profession: "Data Engineer | Software Engineer",
+            profilePicture: "C:/Users/USER/Downloads/454659274_3426649184148602_5962467555163820359_n.jpg", // Update to a correct URL
+            about: {
+                en: "Hello, my name is Ahsan Ahmad. I am currently a student at ITU in the 7th semester. I am exploring the different branches of Computer Science to select what suits me the most. Data and Software Engineering are the two branches that fascinate me the most, so I will choose one of them to pursue my career.",
+                ar: "مرحبًا، اسمي أحسن أحمد. أنا حاليًا طالب في ITU في الفصل السابع. أستكشف الفروع المختلفة لعلوم الكمبيوتر لاختيار ما يناسبني أكثر. الهندسة البيانية وهندسة البرمجيات هما فرعان يثيران اهتمامي أكثر، لذا سأختار أحدهما لمتابعة مسيرتي المهنية. أنا أيضًا متقن لعدة لغات: العربية، الأردية، والفرنسية.",
+                ur: "ہیلو، میرا نام احسن احمد ہے۔ میں اس وقت ITU میں ساتویں سمسٹر کا طالب علم ہوں۔ میں کمپیوٹر سائنس کی مختلف شاخوں کا جائزہ لے رہا ہوں تاکہ یہ منتخب کرسکوں کہ میرے لیے کیا بہتر ہے۔ ڈیٹا اور سافٹ ویئر انجینئرنگ وہ دو شاخیں ہیں جو مجھے سب سے زیادہ دلچسپ لگتی ہیں۔ میں متعدد زبانوں میں بھی مہارت رکھتا ہوں: عربی، اردو، اور فرانسیسی۔",
+                fr: "Bonjour, je m'appelle Ahsan Ahmad. Je suis actuellement étudiant à l'ITU en septième semestre. J'explore les différentes branches de l'informatique pour choisir celle qui me convient le mieux. L'ingénierie des données et l'ingénierie logicielle sont les deux branches qui me fascinent le plus. Je parle également plusieurs langues : arabe, ourdou et français."
+            },
+            skills: {
+                softSkills: ["Communication", "Leadership", "Problem Solving", "Teamwork"],
+                hardSkills: ["Programming: Python, C++", "Web Development: HTML, CSS", "Data Analysis: Excel, SQL"]
+            },
+            projects: [
+                {
+                    name: "Parking Management System",
+                    date: "January 2022",
+                    description: "Developed a basic car parking management system app in Flutter with Google Maps integration."
+                },
+                {
+                    name: "Football Data Analytics",
+                    date: "March 2024",
+                    description: "Created an end-to-end Azure data engineering project that fetches data from the internet about stadiums and helps filter them according to requirements."
+                }
+            ],
+            certifications: [
+                {
+                    name: "Google Data Analytics Professional Certificate",
+                    date: "March 2023",
+                    description: "A comprehensive program that covers data cleaning, analysis, visualization, and more using Google’s tools."
+                }
+            ],
+            education: [
+                {
+                    degree: "Bachelor of Science in Computer Science",
+                    university: "Information Technology University",
+                    graduationDate: "May 2025"
+                },
+                {
+                    degree: "A Levels",
+                    university: "Beacon House",
+                    dateCompleted: "August 2020"
+                }
+            ],
+            socialMedia: {
+                linkedin: "https://www.linkedin.com/in/ahsan-ahmad-b13591286/",
+                github: "https://github.com/AhsanAhmad3",
+                twitter: "https://x.com/ahmad64569"
+            },
+            contact: {
+                email: "ahsanv032@gmail.com",
+                phone: "03104273082"
+            },
+            video: "C:/Users/USER/Downloads/Motion Graphics Background Video Loop Part 2 Single Tree Animation 4K Download Free Footage.mp4" // Update to a correct URL
+        };
+
+     </script>
+// </body>
+// </html>
